@@ -7,34 +7,42 @@ export const Route = createLazyFileRoute("/")({
 });
 
 function Index() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["test", "videos"],
-    queryFn: async () => {
-      type MediaContent = {
-        videoFile: string;
-        id: string;
-      };
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["test", "videos"],
+  //   queryFn: async () => {
+  //     type MediaContent = {
+  //       videoFile: string;
+  //       id: string;
+  //     };
+  //     const photo = (await $$sanityClient.fetch(`
+  //       *[_type == "imageAssets"] {
+  //             "imageAsset": imageAsset.asset -> url,
+  //              _id
+  //         }
+  //       `)) as MediaContent[];
 
-      const images = (await $$sanityClient.fetch(`
-          *[_type == "videoAssets"] {
-              "videoFile": videoFile.asset -> url,
-               _id
-          }
-        `)) as MediaContent[];
+  //     const images = (await $$sanityClient.fetch(`
+  //         *[_type == "videoAssets"] {
+  //             "videoFile": videoFile.asset -> url,
+  //              _id
+  //         }
+  //       `)) as MediaContent[];
 
-      return images;
-    },
-  });
+  //     return photo;
+  //   },
+  // });
+
   return (
-    <div className="p-2">
-      {isLoading && <p>Loading Images...</p>}
+    <div className="p-2 w-full h-[200vh]">
+      {/* {isLoading && <p>Loading Images...</p>}
       <div className="w-96 h-96 relative">
         {data?.map((video) => (
           <video autoPlay loop muted>
             <source src={video.videoFile} />
           </video>
         ))}
-      </div>
+        {data?.map((photo) => <img src={photo.imageAssets} alt="" />)}
+      </div> */}
     </div>
   );
 }
