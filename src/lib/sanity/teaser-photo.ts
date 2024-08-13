@@ -4,13 +4,13 @@ import {
 } from "../../../instapostph/node_modules/@sanity/types";
 
 export default {
-  name: "socialAsset",
-  title: "Social Media Post",
+  name: "teaserPhotography",
+  title: "Teaser Photography",
   type: "document",
   fields: [
     defineField({
-      name: "socialAsset",
-      title: "Social Asset",
+      name: "imageAsset",
+      title: "Image Asset",
       type: "image",
       options: {
         hotspot: true,
@@ -20,11 +20,6 @@ export default {
       name: "altText",
       title: "Alternative Text",
       type: "string",
-    }),
-    defineField({
-      name: "datePosted",
-      title: "Date Posted",
-      type: "date",
     }),
   ],
 } as SchemaTypeDefinition;

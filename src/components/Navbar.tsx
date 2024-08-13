@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Button } from "../components/ui/button";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -30,19 +29,19 @@ const Navbar = () => {
       <div
         className={
           scrolled
-            ? "w-full max-w-2xl mx-auto items-center justify-between flex mt-2 rounded-3xl bg-gray-100 px-4"
-            : "w-full max-w-2xl mx-auto items-center justify-between flex rounded-sm bg-white"
+            ? "w-full max-w-2xl mx-auto items-center justify-between backdrop-blur-md flex mt-2 rounded-3xl bg-gray-10/50 px-4"
+            : "w-full max-w-2xl mx-auto items-center justify-between backdrop-blur-md flex rounded-sm bg-white"
         }
       >
-        <div className="flex gap-3 items-center">
+        <div className="flex items-center gap-3">
           <Link to="/">
             <img
-              className="w-20 h-20 -mt-1 object-contain object-center"
+              className="object-contain object-center w-20 h-20 -mt-1"
               src="/instaAssets/logo.png"
               alt=""
             />
           </Link>
-          <div className="gap-3 hidden md:flex">
+          <div className="hidden gap-3 md:flex">
             <Link to="/">Home</Link>
             <Link to="/">About</Link>
             <Link to="/">Services</Link>

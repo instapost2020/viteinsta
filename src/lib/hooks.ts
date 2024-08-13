@@ -64,3 +64,24 @@ export const useSanitySocial = () => {
 
   return { isLoading, data };
 };
+export const useSanityTeaserPhoto = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["test", "teaserphoto"],
+    queryFn: async () => {
+      type MediaContent = {
+        imageAsset: string;
+        id: string;
+      };
+      const teaserPhoto = (await $$sanityClient.fetch(`
+            *[_type == "teaserPhotography"] {
+                  "imageAsset": imageAsset.asset -> url,
+                  _id
+              }
+            `)) as MediaContent[];
+
+      return teaserPhoto;
+    },
+  });
+
+  return { isLoading, data };
+};

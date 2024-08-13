@@ -1,11 +1,8 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
-import { $$sanityClient } from "../lib/sanity-client";
-import sanityImageBuilder from "../lib/sanity-image-builder";
-import { useSanityImages } from "../lib/hooks";
 import Hero from "../../src/components/Hero";
 import SecondLanding from "../../src/components/SecondLanding";
-import { motion } from "framer-motion";
+import TeaserPhotography from "../../src/components/TeaserPhotography";
+import { useSanityImages } from "../lib/hooks";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -17,6 +14,7 @@ function Index() {
     <div className="w-full h-auto">
       <Hero />
       <SecondLanding />
+      <TeaserPhotography />
     </div>
   );
 }
