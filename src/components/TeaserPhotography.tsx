@@ -1,7 +1,7 @@
 import Autoplay from "embla-carousel-autoplay";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { Button } from "../../src/components/ui/button";
+import { Button, buttonVariants } from "../../src/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -10,22 +10,17 @@ import {
   CarouselPrevious,
 } from "../../src/components/ui/carousel";
 import { useSanityTeaserPhoto } from "../../src/lib/hooks";
+import { Link } from "@tanstack/react-router";
 
 const TeaserPhotography = () => {
   const plugin = React.useRef();
   const [clicked, setClicked] = useState<string>("");
   const teaser = useSanityTeaserPhoto();
   return (
-    <div
-      className="w-full h-auto py-20 bg-yellow-400 rounded-t-3xl"
-      style={{ fontFamily: "RalewayMedium" }}
-    >
-      <h1 className="max-w-xs pb-8 pl-4 text-2xl font-semibold text-gray-800 uppercase md:max-w-none md:text-center md:text-4xl">
-        Check out some of our <span className="text-red-600 ">Photography</span>
-      </h1>
-      <div className="w-full px-2 mx-auto space-y-4 bg-yellow-400 ">
+    <div className="w-full h-auto  " style={{ fontFamily: "RalewayMedium" }}>
+      <div className="w-full px-2 mx-auto space-y-4 items-center flex flex-col">
         <Carousel
-          className="w-full max-w-6xl mx-auto bg-yellow-300 h-fit backdrop-blur-sm"
+          className="w-full max-w-7xl mx-auto h-fit backdrop-blur-sm"
           opts={{
             loop: true,
           }}
@@ -39,22 +34,26 @@ const TeaserPhotography = () => {
           <CarouselContent className="">
             {teaser.data?.map((teaser, index) => (
               <CarouselItem
-                className="flex items-center justify-center w-full py-2 h-96 basis-2/3 md:basis-1/3"
+                className="flex items-center justify-center w-full py-2 h-[500px] basis-3/3 md:basis-1/3 lg:basis-1/4"
                 key={index}
               >
                 <img
                   onClick={() => setClicked(teaser.imageAsset)}
                   src={teaser.imageAsset}
-                  className="object-contain w-full h-full md:object-contain"
+                  className="object-contain w-full h-full md:object-contain hover:cursor-pointer"
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
           <CarouselNext className="absolute right-5" />
         </Carousel>
+        <Link to="/" className="bg-red-600 text-white p-3 rounded-3xl mx-auto">
+          SHOW MORE!
+        </Link>
       </div>
-      <AnimatePresence mode="wait">
-        {clicked && (
+
+      {clicked && (
+        <AnimatePresence mode="wait">
           <motion.div
             initial={{
               opacity: 0,
@@ -97,8 +96,8 @@ const TeaserPhotography = () => {
               />
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
     </div>
   );
 };
