@@ -10,14 +10,12 @@ export const Route = createFileRoute("/about")({
 });
 
 const About = () => {
-  const sanityVideos = useSanityVideos();
-  const sanitySocial = useSanitySocial();
-  const sanityImage = useSanityImages();
+  // const sanityVideos = useSanityVideos();
+  // const sanitySocial = useSanitySocial();
+  // const sanityImage = useSanityImages();
   return (
     <div className="w-full h-auto">
-      {sanitySocial.data?.map((post) => (
-        <img src={post.imageAsset} className="w-32 h-32" />
-      ))}
+      <h1>ABOUT</h1>
     </div>
   );
 };

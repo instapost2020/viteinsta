@@ -20,7 +20,11 @@ const Navbar = () => {
   });
   return (
     <nav
-      className="w-full h-auto fixed z-50 top-0 left-0 flex font-semibold"
+      className={
+        scrolled
+          ? "w-full h-auto fixed mb-24 z-50 top-0 left-0 flex font-semibold bg-transparent duration-300 ease-out transition-all"
+          : "w-full h-auto fixed mb-24 z-50 top-0 left-0 flex font-semibold bg-white duration-300 ease-out transition-all"
+      }
       style={{ fontFamily: "RalewayMedium" }}
     >
       <div
@@ -38,11 +42,11 @@ const Navbar = () => {
               alt=""
             />
           </Link>
-          <div className="gap-3 flex">
-            <Link>Home</Link>
-            <Link>About</Link>
-            <Link>Services</Link>
-            <Link>Shops</Link>
+          <div className="gap-3 hidden md:flex">
+            <Link to="/">Home</Link>
+            <Link to="/">About</Link>
+            <Link to="/">Services</Link>
+            <Link to="/">Shops</Link>
           </div>
         </div>
         <div>

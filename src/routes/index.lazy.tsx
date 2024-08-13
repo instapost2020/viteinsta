@@ -3,6 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { $$sanityClient } from "../lib/sanity-client";
 import sanityImageBuilder from "../lib/sanity-image-builder";
 import { useSanityImages } from "../lib/hooks";
+import Hero from "../../src/components/Hero";
+import SecondLanding from "../../src/components/SecondLanding";
+import { motion } from "framer-motion";
+
 export const Route = createLazyFileRoute("/")({
   component: Index,
 });
@@ -10,13 +14,9 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   const sanityImages = useSanityImages();
   return (
-    <div className="p-2 w-full h-[200vh]">
-      {sanityImages.isLoading && <p>Loading Images...</p>}
-      <div className="w-96 h-96 relative">
-        {sanityImages.data?.map((image) => (
-          <img src={image.imageAsset} alt="" />
-        ))}
-      </div>
+    <div className="w-full h-auto">
+      <Hero />
+      <SecondLanding />
     </div>
   );
 }
