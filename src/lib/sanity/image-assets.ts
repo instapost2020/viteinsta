@@ -1,7 +1,7 @@
 import {
   SchemaTypeDefinition,
   defineField,
-} from "instapostph/node_modules/@sanity/types";
+} from "../../../instapostph/node_modules/@sanity/types";
 
 export default {
   name: "mediaContent",

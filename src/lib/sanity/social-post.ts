@@ -4,22 +4,27 @@ import {
 } from "../../../instapostph/node_modules/@sanity/types";
 
 export default {
-  name: "videoAssets",
-  title: "Video Assets",
+  name: "socialPost",
+  title: "Social Media Post",
   type: "document",
   fields: [
+    defineField({
+      name: "imageAsset",
+      title: "Image Asset",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    }),
     defineField({
       name: "altText",
       title: "Alternative Text",
       type: "string",
     }),
     defineField({
-      name: "videoFile",
-      title: "Video File",
-      type: "file",
-      options: {
-        accept: "video/*",
-      },
+      name: "datePosted",
+      title: "Date Posted",
+      type: "date",
     }),
   ],
 } as SchemaTypeDefinition;
